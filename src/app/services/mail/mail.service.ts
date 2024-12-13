@@ -10,7 +10,7 @@ import { EmailInput } from '../../interfaces/emailInput.interface';
 export class MailService {
   constructor(private readonly http: HttpClient) {}
 
-  baseUri = environment.baseUri;
+  baseUri = environment.baseUri ? environment.baseUri : process.env['baseUri'];
 
   emailUri = `${this.baseUri}mailer`;
 
