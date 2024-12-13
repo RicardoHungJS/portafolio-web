@@ -72,13 +72,13 @@
 
       @include vars.stylesBasedOnSize('medium') {
         filter: drop-shadow(-5px 5px 10px #00000035);
-        width: 20rem;
+        width: 35vh;
         margin-bottom: 1rem;
       }
 
       @include vars.stylesBasedOnSize('small') {
         filter: drop-shadow(-5px 5px 10px #00000035);
-        width: 15rem;
+        width: 30vh;
         margin-bottom: 1rem;
       }
     }
@@ -143,7 +143,7 @@
     .main-title {
       display: inline-block;
       color: vars.$colorPrincipal;
-      font-size: 3em;
+      font-size: 3rem;
       margin: 5px 0;
 
       @include vars.stylesBasedOnSize('large') {
@@ -155,6 +155,7 @@
       }
 
       @include vars.stylesBasedOnSize('small') {
+        font-size: 2rem;
         margin: 0;
       }
     }
