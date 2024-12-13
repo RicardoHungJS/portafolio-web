@@ -1,0 +1,20 @@
+<div class="inicioPresentacionContainer">
+  <div class="informationContainer">
+    <div class="picture"></div>
+    <div class="information">
+      <div>
+        <h3 class="main-title">{{ "inicioComponent.txt1" | translate }}</h3>
+        <h1 class="main-title">{{ "inicioComponent.txt2" | translate }}</h1>
+      </div>
+      <h3 style="margin: 1.3rem 0;">{{ "inicioComponent.txt3" | translate: { years: years } }}</h3>
+      <div class="inicioPresentacionContainer__buttons-container">
+        <app-icon-button [buttonText]="'inicioComponent.cvButton' | translate"
+          buttonIconUrl="./app/assets/img/icons/file-download.svg" (clickEvent)="redirect('cv')"></app-icon-button>
+        <app-icon-button buttonText="Linkedin" buttonIconUrl="./app/assets/img/icons/linkedin.svg"
+          (clickEvent)="redirect('https://www.linkedin.com/in/rjh92/')"></app-icon-button>
+        <app-icon-button buttonText="Github" buttonIconUrl="./app/assets/img/icons/github.svg"
+          (clickEvent)="redirect('https://github.com/RicardoHungJS')"></app-icon-button>
+      </div>
+    </div>
+  </div>
+</div>

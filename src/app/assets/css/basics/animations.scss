@@ -1,0 +1,56 @@
+@keyframes appearFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(15rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animationBlockFromBottom {
+  view-timeline-name: --item-timeline;
+  animation: appearFromBottom both;
+  animation-timeline: --item-timeline;
+  animation-range: entry 30% cover 30%;
+}
+
+@keyframes appearFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(15rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animationBlockFromLeft {
+  view-timeline-name: --item-timeline;
+  animation: appearFromLeft both;
+  animation-timeline: --item-timeline;
+  animation-range: entry 30% cover 30%;
+}
+
+@keyframes appearFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(15rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animationBlockFromRight {
+  view-timeline-name: --item-timeline;
+  animation: appearFromRight both;
+  animation-timeline: --item-timeline;
+  animation-range: entry 30% cover 30%;
+}

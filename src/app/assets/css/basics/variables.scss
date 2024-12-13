@@ -1,0 +1,39 @@
+$colorPrincipal: #f2b138;
+$colorSecundario: #003f63;
+$colorSecundarioClaro: #00598d;
+$gris1: #d9d9d9;
+$gris2: #a1a5a6;
+$gris3: #353d40;
+$blanco: #fff;
+$negro: #000;
+
+@mixin doNotCopyTexts {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+@mixin stylesBasedOnSize($size) {
+  @if $size =="small" {
+    @media (max-width: 426px) {
+      @content;
+    }
+  }
+
+  @else if $size =="medium" {
+    @media (min-width: 426px) and (max-width: 1024px) {
+      @content;
+    }
+  }
+
+  @else if $size =="large" {
+    @media (min-width: 1025px) {
+      @content;
+    }
+  }
+
+  @else {
+    @content;
+  }
+}

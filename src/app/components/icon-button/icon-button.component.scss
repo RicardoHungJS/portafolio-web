@@ -1,0 +1,30 @@
+.icon-button {
+  height: 2rem;
+  width: fit-content;
+  background-color: #ffffff28;
+  backdrop-filter: blur(1rem);
+  padding: 0.4rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.5s ease;
+
+  &:hover {
+    filter: brightness(1.5);
+  }
+
+  .icon-button__icon {
+    height: 100%;
+    aspect-ratio: 1/1;
+  }
+
+  .icon-button__button-text {
+    padding: 0;
+    margin: 0;
+    font-size: 1.2rem;
+    color: #d6d6d6;
+  }
+}

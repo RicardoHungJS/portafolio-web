@@ -1,0 +1,179 @@
+@use '../../assets/css/basics/variables' as vars;
+
+.trabajos-container {
+  width: 100%;
+  min-height: 100dvh;
+  height: fit-content;
+  background-color: vars.$gris3;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+
+  .titulo-trabajos {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 3rem;
+    color: vars.$gris1;
+    text-align: center;
+  }
+
+  .tarjetas-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2rem;
+
+    .tarjeta-trabajo {
+      position: relative;
+      width: 32%;
+      aspect-ratio: 2;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 10px 10px 10px 1px #0000002e;
+      transition: all .5s;
+
+      &:hover {
+        .text-container {
+          bottom: 0;
+        }
+
+        .back-img {
+          transform: scale(1.2);
+        }
+      }
+
+      .back-img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        object-fit: cover;
+        transition: all 0.5s;
+      }
+
+      .text-container {
+        position: absolute;
+        bottom: -100%;
+        width: 100%;
+        height: 100%;
+        padding: 2rem;
+        border: 2px solid #f2b138;
+        border-radius: 10px;
+        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(5px);
+        background-color: #000000af;
+        color: #fff;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: space-evenly;
+        justify-content: center;
+        gap: 1rem;
+        transition: all .5s;
+
+        &:hover {
+          bottom: 0;
+        }
+
+        h3 {
+          width: 100%;
+          display: block;
+          margin: 0;
+          font-size: 1.3rem;
+          text-align: center;
+          color: vars.$colorPrincipal;
+        }
+
+        p {
+          width: 100%;
+          margin: 0;
+          font-size: 0.9rem;
+          font-weight: bold;
+          text-align: center;
+        }
+
+        a {
+          margin: 0;
+          color: vars.$colorPrincipal;
+          text-align: center;
+          text-decoration: none;
+          transition: all 0.5s;
+          font-weight: bold;
+
+          &:hover {
+            color: #ffe7ba;
+            transform: scale(1.05);
+          }
+        }
+      }
+    }
+  }
+
+}
+
+@media (max-width: 1030px) {
+  .tarjeta-trabajo {
+    width: 45% !important;
+
+    .text-container {
+      padding: 0.5rem !important;
+      gap: 5px;
+
+      h3 {
+        font-size: 1rem !important;
+        word-wrap: break-word !important;
+      }
+
+      p {
+        font-size: 0.8rem !important;
+      }
+
+      a {
+        margin: 0;
+        color: vars.$colorPrincipal;
+        text-align: center;
+        text-decoration: none;
+        transition: all 0.5s;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .trabajos-container {
+    padding: 1rem 0.5rem;
+
+    .titulo-trabajos {
+      margin-top: 5rem;
+      margin-bottom: 1rem;
+    }
+
+    .tarjeta-trabajo {
+      width: 100% !important;
+      min-height: 13rem;
+
+      .text-container {
+        padding: 0.5rem !important;
+        gap: 5px;
+
+        h3 {
+          font-size: 1rem !important;
+          word-wrap: break-word !important;
+        }
+
+        p {
+          font-size: 0.8rem !important;
+        }
+
+        a {
+          margin: 0;
+          color: vars.$colorPrincipal;
+          text-align: center;
+          text-decoration: none;
+          transition: all 0.5s;
+        }
+      }
+    }
+  }
+}

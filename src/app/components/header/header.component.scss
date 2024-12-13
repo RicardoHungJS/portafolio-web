@@ -1,0 +1,280 @@
+@use '../../assets/css/basics/variables' as vars;
+
+.headerContainer {
+  position: fixed;
+  z-index: 30;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  .header {
+    position: absolute;
+    width: 98%;
+    height: 85%;
+    border-radius: 10px;
+    background-color: #00000069;
+    backdrop-filter: blur(6px);
+    -webkit-box-shadow: 0px 4px 15px 0px #00000010;
+    box-shadow: 0px 4px 15px 0px #00000010;
+    display: grid;
+    grid-template-columns: 7% auto 6%;
+    align-items: center;
+
+    .RHL-logo {
+      grid-column: 1/2;
+      height: 70%;
+      margin: 10px 0;
+      background-image: url("../../assets/img/logos/rhl-multi-color.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      transition: all 0.5s;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+        transition: all 0.8s;
+      }
+    }
+
+    .optionsContainer {
+      grid-column: 2/3;
+      margin: 0;
+      list-style: none;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      .headerOption {
+        position: relative;
+        margin: 0 15px;
+        font-size: 1.3em;
+        font-weight: normal;
+        font-weight: 0;
+        color: white;
+        transition: 0.4s;
+        display: flex;
+        align-items: center;
+
+        &:after {
+          content: "";
+          position: absolute;
+          background: none;
+          left: 50%;
+          bottom: 0;
+          display: block;
+          height: 2px;
+          width: 0;
+          transition: 0.2s;
+        }
+
+        &:hover:after {
+          background: vars.$colorPrincipal;
+          width: 100%;
+          left: 0;
+        }
+
+        &:hover {
+          cursor: pointer;
+          color: #00639d;
+        }
+      }
+    }
+
+    .lenguajeContainer {
+      grid-column: 3/4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 300px;
+
+      .card3D {
+        border-radius: 50%;
+        position: relative;
+        width: 2em;
+        height: 2em;
+
+        .checkbox-languaje {
+          cursor: pointer;
+          position: absolute;
+          z-index: 100;
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+
+          &:checked~.lenguajeCard {
+            transform: rotateY(180deg);
+          }
+        }
+
+        .lenguajeCard {
+          position: relative;
+          transform-style: preserve-3d;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+          transition: all 0.8s;
+
+          @mixin faces {
+            border-radius: 50%;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgb(130, 130, 130);
+            background-size: cover;
+            backface-visibility: hidden;
+
+            p {
+              font-size: 1.1em;
+              font-weight: bold;
+              -webkit-text-stroke: 0.5px black;
+              color: #ffffff;
+              text-shadow: 0px 0px 10px #000000;
+            }
+          }
+
+          .frontFace {
+            @include faces();
+            background-image: url("../../assets/img/imagenes/banderaColombia.png");
+          }
+
+          .backFace {
+            @include faces();
+            transform: rotateY(180deg);
+            background-image: url("../../assets/img/imagenes/banderaEstadosUnidos.png");
+          }
+        }
+      }
+    }
+
+    .burger-button-container {
+      display: none;
+    }
+  }
+
+  .floating-menu-options {
+    display: none;
+  }
+
+}
+
+
+@media (max-width: 992px) {
+  .headerContainer {
+    .header {
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+      padding-left: 1rem;
+      grid-template-columns: 11% auto 12% 20%;
+
+      .optionsContainer {
+        display: none;
+
+        .headerOption {
+          font-size: 0.9em;
+          margin: 5px;
+        }
+      }
+
+      .burger-button-container {
+        grid-column: 4/5;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .checkbox-menu {
+          position: absolute;
+          z-index: 10;
+          width: 2rem;
+          height: 2rem;
+          opacity: 0;
+
+          &:checked+.burguer-button-icon {
+            .bar-top {
+              transform: rotate(45deg);
+              transform-origin: 10% 10%;
+            }
+          }
+
+          &:checked+.burguer-button-icon {
+            .bar-mid {
+              opacity: 0;
+            }
+          }
+
+          &:checked+.burguer-button-icon {
+            .bar-bot {
+              transform: rotate(-45deg);
+              transform-origin: 10% 90%;
+            }
+          }
+        }
+
+        .burguer-button-icon {
+          position: relative;
+          z-index: 9;
+          width: 2rem;
+          height: 2rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          .icon-bar {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background-color: #6e6e6e;
+            margin: 2px;
+            transform: rotate(0);
+            transition: all 0.2s;
+          }
+        }
+      }
+    }
+
+    .showed {
+      right: 0px;
+    }
+
+    .hided {
+      right: 150%;
+    }
+
+    .floating-menu-options {
+      position: absolute;
+      width: 100%;
+      height: calc(100dvh - 60px);
+      padding: 0;
+      background-color: #0000009c;
+      backdrop-filter: blur(5px);
+      top: 55px;
+      border-radius: 4px;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5rem;
+      transition: all 0.3s ease;
+
+      .headerOption {
+        color: white;
+        font-size: 2rem;
+        font-weight: bold;
+      }
+    }
+  }
+}

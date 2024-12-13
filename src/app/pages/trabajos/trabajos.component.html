@@ -1,0 +1,21 @@
+<div class="trabajos-container">
+  <h2 class="titulo-trabajos">{{'trabajosComponent.title' | translate}}</h2>
+  <div class="tarjetas-container">
+    @for (tarjeta of tarjetasExp; track $index) {
+    <div class="tarjeta-trabajo animationBlockFromBottom">
+      <img class="back-img" src={{tarjeta.imagen}} alt="{{tarjeta.titulo}}" title="{{tarjeta.titulo | translate}}">
+      <div class="text-container">
+        <h3>{{tarjeta.titulo | translate}}</h3>
+        <p>{{tarjeta.descripcion | translate}}</p>
+        @if(tarjeta.link){
+        <a href="{{tarjeta.link}}" target="_blank"
+          title="{{tarjeta.titulo | translate}}">{{'trabajosComponent.visitPageButton' | translate}}</a>
+        } @else {
+        <a href="#"></a>
+        }
+      </div>
+    </div>
+    }
+  </div>
+
+</div>

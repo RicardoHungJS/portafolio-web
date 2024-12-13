@@ -1,0 +1,57 @@
+{
+  "headerComponent": {
+    "start": "Inicio",
+    "link1": "Trabajos",
+    "link2": "Conocimientos",
+    "link3": "Contáctame"
+  },
+
+  "inicioComponent": {
+    "txt1": "¡Hola! Soy Ricardo,",
+    "txt2": "Desarrollador fullstack",
+    "txt3": "Con más de {{years}} años creando soluciones web para empresas de alto impacto y clientes destacados.",
+    "txt4": "Ávido de nuevos desafíos, busco constantemente crecimiento. Explora mi portafolio para ver ejemplos de mi trabajo y logros. Estoy emocionado por compartir mi experiencia y aportar mis habilidades a proyectos futuros.",
+    "cvButton": "Descargar CV",
+    "cvUrl": "https://firebasestorage.googleapis.com/v0/b/portafolio-rhl.appspot.com/o/documents%2FCV_RicardoHung.pdf?alt=media&token=58d67829-5ebd-4947-a00f-e272f58cb482"
+  },
+
+  "trabajosComponent": {
+    "title": "MIS TRABAJOS",
+    "visitPageButton": "Visitar página",
+    "subtitle1": "MIIA Colombia",
+    "description1": "Contribuí al desarrollo tanto del backend como del frontend de la aplicación MIIA Colombia. Mi trabajo se centró en entregar soluciones de alta calidad en los plazos acordados, lo que resultó en una mejora significativa para el cliente.",
+    "subtitle2": "Créditos Bancolombia",
+    "description2": "Fui un miembro clave del Grupo de Desarrollo de Créditos de Bancolombia, donde contribuí a la creación de funcionalidades innovadoras y proporcioné un soporte crucial a varias aplicaciones. Además, desempeñé un papel importante en el desarrollo de una nueva característica para el proyecto de Bancolombia que involucra importaciones internacionales y logística de transporte doméstico para la empresa.",
+    "subtitle3": "Página principal y administrativa de Kuepa Edutech",
+    "description3": "Colaboré con un equipo de profesionales en el desarrollo de varias aplicaciones dentro de la página principal y el panel administrativo de Kuepa Edutech. Estas aplicaciones son utilizadas por diversas entidades educativas, lo que permitió mejorar la experiencia de usuario y optimizar los procesos internos de gestión.",
+    "subtitle4": "IP tracker",
+    "description4": "Desarrollé una herramienta de seguimiento de direcciones IP y dominios que proporciona la ubicación geográfica correspondiente en un mapa interactivo. Esta funcionalidad es útil para monitorear y visualizar la actividad de red de forma intuitiva.",
+    "subtitle5": "Lista de trabajos estática",
+    "description5": "Diseñé una lista de trabajos que permite una interacción dinámica, donde la selección de etiquetas ubicadas junto a las cards permite filtrar los resultados según los criterios deseados. Esto proporciona una experiencia de usuario más personalizada y eficiente.",
+    "subtitle6": "Dashboard con cards dinámicas",
+    "description6": "Desarrollé un dashboard que presenta información mediante cards dinámicas, adaptándose de manera flexible a los datos disponibles. Esta funcionalidad ofrece una visión general y actualizada de los datos relevantes para la toma de decisiones."
+  },
+
+  "aptitudesComponent": {
+    "title": "STACK TECNOLÓGICO"
+  },
+
+  "contactameComponent": {
+    "title": "CONTÁCTAME",
+    "formTitle": "Formulario de contacto",
+    "subtitle1": "Número telefónico",
+    "subtitle2": "Correo electrónico",
+    "subtitle3": "Redes sociales"
+  },
+
+  "form": {
+    "label1": "Nombres",
+    "label2": "Apellidos",
+    "label3": "Teléfono",
+    "label4": "Correo electrónico",
+    "label5": "Mensaje",
+    "placeholer1": "Escribe tu mensaje aquí",
+    "clarButton": "Limpiar",
+    "sendButton": "Enviar"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "headerComponent": {
+    "start": "Home",
+    "link1": "Works",
+    "link2": "Knowledge",
+    "link3": "Contact me"
+  },
+
+  "inicioComponent": {
+    "txt1": "Hi! i'm Ricardo,",
+    "txt2": "fullstack developer",
+    "txt3": "With over {{years}} years creating web solutions for high-impact companies and prominent clients.",
+    "txt4": "Eager for new challenges, I constantly seek growth. Explore my portfolio for a glimpse of my work and achievements. I'm excited to share my experience and contribute my skills to future projects.",
+    "cvButton": "Download CV",
+    "cvUrl": "https://firebasestorage.googleapis.com/v0/b/portafolio-rhl.appspot.com/o/documents%2FCV_EN_RicardoHung.pdf?alt=media&token=6d5b36d1-89c9-45e5-a036-40fcf06a39bb"
+  },
+
+  "trabajosComponent": {
+    "title": "MY WORKS",
+    "visitPageButton": "Visit page",
+    "subtitle1": "MIIA Colombia",
+    "description1": "I contributed to the development of both the backend and frontend of the MIIA Colombia application. My work focused on delivering high-quality solutions within agreed-upon deadlines, resulting in significant improvement for the client.",
+    "subtitle2": "Bancolombia credits",
+    "description2": "I was a key member of Bancolombia's Credit Development Group, where I contributed to the creation of innovative functionalities and provided crucial support to various applications. Additionally, I played a significant role in the development of a new feature for Bancolombia's project involving international imports and domestic transportation logistics for the company.",
+    "subtitle3": "Main and Administrative Page of Kuepa Edutech",
+    "description3": "I collaborated with a team of professionals in developing various applications within the main page and administrative panel of Kuepa Edutech. These applications are used by diverse educational entities, allowing for an enhanced user experience and optimized internal management processes.",
+    "subtitle4": "IP Tracker",
+    "description4": "I developed a tool for tracking IP addresses and domains, providing corresponding geographic location on an interactive map. This functionality is useful for monitoring and visualizing network activity intuitively.",
+    "subtitle5": "Static Job List",
+    "description5": "I designed a job list that allows for dynamic interaction, where selecting tags located alongside the cards filters the results according to desired criteria. This provides a more personalized and efficient user experience.",
+    "subtitle6": "Dashboard with Dynamic Cards",
+    "description6": "I developed a dashboard that presents information through dynamic cards, adapting flexibly to the available data. This functionality provides an up-to-date overview of relevant data for decision-making."
+  },
+
+  "aptitudesComponent": {
+    "title": "TECH STACK"
+  },
+
+  "contactameComponent": {
+    "title": "CONTACT ME",
+    "formTitle": "Contact form",
+    "subtitle1": "Phone",
+    "subtitle2": "Email",
+    "subtitle3": "Social networks"
+  },
+
+  "form": {
+    "label1": "Name",
+    "label2": "Lastname",
+    "label3": "Phone number",
+    "label4": "Email",
+    "label5": "Message",
+    "placeholer1": "Write your message here",
+    "clarButton": "Reset",
+    "sendButton": "Send"
+  }
+}

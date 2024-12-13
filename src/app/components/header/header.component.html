@@ -1,0 +1,74 @@
+<header class="headerContainer">
+  <div class="header">
+    <div class="RHL-logo" (click)="moveToSection('about')"></div>
+
+    <ul class="optionsContainer">
+      <li>
+        <a class="headerOption" (click)="moveToSection('about')">{{
+          "headerComponent.start" | translate
+          }}</a>
+      </li>
+      <li>
+        <a class="headerOption" (click)="moveToSection('works')">{{
+          "headerComponent.link1" | translate
+          }}</a>
+      </li>
+      <li>
+        <a class="headerOption" (click)="moveToSection('aptitudes')">{{
+          "headerComponent.link2" | translate
+          }}</a>
+      </li>
+      <li>
+        <a class="headerOption" (click)="moveToSection('contact')">{{
+          "headerComponent.link3" | translate
+          }}</a>
+      </li>
+    </ul>
+
+    <div class="lenguajeContainer">
+      <div class="card3D">
+        <input class="checkbox-languaje" type="checkbox" (change)="cambiarIdioma(langAns)" />
+        <div class="lenguajeCard">
+          <div class="frontFace">
+            <p>ES</p>
+          </div>
+          <div class="backFace">
+            <p>EN</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="burger-button-container">
+      <input class="checkbox-menu" type="checkbox" [(ngModel)]="menuShowed" />
+      <div class="burguer-button-icon">
+        <span class="icon-bar bar-top"></span>
+        <span class="icon-bar bar-mid"></span>
+        <span class="icon-bar bar-bot"></span>
+      </div>
+    </div>
+  </div>
+
+  <ul class="floating-menu-options" [ngClass]="menuShowed ? 'showed' : 'hided'">
+    <li>
+      <a class="headerOption" (click)="moveToSection('about')">{{
+        "headerComponent.start" | translate
+        }}</a>
+    </li>
+    <li>
+      <a class="headerOption" (click)="moveToSection('works')">{{
+        "headerComponent.link1" | translate
+        }}</a>
+    </li>
+    <li>
+      <a class="headerOption" (click)="moveToSection('aptitudes')">{{
+        "headerComponent.link2" | translate
+        }}</a>
+    </li>
+    <li>
+      <a class="headerOption" (click)="moveToSection('contact')">{{
+        "headerComponent.link3" | translate
+        }}</a>
+    </li>
+  </ul>
+</header>

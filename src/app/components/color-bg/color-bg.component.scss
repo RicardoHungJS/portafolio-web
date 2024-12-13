@@ -1,0 +1,106 @@
+$color-bg1: #080a0f;
+$color-bg2: #001b33;
+$color1: #00598d;
+$color2: #00598d;
+$color3: #f2b138;
+$color4: #007cc4;
+$color5: #007cc4;
+$color-interactive: #f2b138;
+$circle-size: 45%;
+$blending: hard-light;
+
+@mixin keyframes-mixin($name, $transform-start, $transform-middle, $transform-end) {
+  @keyframes #{$name} {
+    0% {
+      transform: $transform-start;
+    }
+
+    50% {
+      transform: $transform-middle;
+    }
+
+    100% {
+      transform: $transform-end;
+    }
+  }
+}
+
+@include keyframes-mixin(moveInCircle, rotate(0deg), rotate(180deg), rotate(360deg));
+@include keyframes-mixin(moveVertical, translateY(-50%), translateY(50%), translateY(-50%));
+@include keyframes-mixin(moveHorizontal, translateX(-50%) translateY(-10%), translateX(50%) translateY(10%), translateX(-50%) translateY(-10%));
+
+.gradient-bg {
+  width: 100%;
+  height: 100dvh;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(40deg, $color-bg1, $color-bg2);
+  top: 0;
+  left: 0;
+
+  .svgBlur {
+    display: none;
+  }
+
+  .noiseBg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    mix-blend-mode: soft-light;
+    opacity: 0.6;
+  }
+
+  .gradients-container {
+    width: 100%;
+    height: 100%;
+    filter: url(#goo) blur(30px);
+  }
+
+  @mixin gradient-circle($color, $size, $top, $left, $transform-origin, $animation, $opacity) {
+    position: absolute;
+    background: radial-gradient(circle at center, rgba($color, 0.8) 0%, rgba($color, 0) 50%) no-repeat;
+    mix-blend-mode: $blending;
+
+    width: $size;
+    aspect-ratio: 1 / 1;
+    top: $top;
+    left: $left;
+
+    transform-origin: $transform-origin;
+    animation: $animation;
+
+    opacity: $opacity;
+  }
+
+  .g1 {
+    @include gradient-circle($color1, var(--circle-size), calc(50%), calc(50%), center center, moveVertical 30s ease infinite, 1);
+  }
+
+  .g2 {
+    @include gradient-circle($color2, $circle-size, calc(50% - $circle-size / 2), calc(50% - $circle-size / 2), calc(50% - 500px), moveInCircle 20s reverse infinite, 1);
+  }
+
+  .g3 {
+    @include gradient-circle($color3, $circle-size, calc(50% - $circle-size / 2), calc(70%), calc(50% + 100px), moveInCircle 40s linear infinite, 1);
+  }
+
+  .g4 {
+    @include gradient-circle($color4, $circle-size, calc(50% - $circle-size / 2), calc(50% - $circle-size / 2), calc(50% - 50px), moveHorizontal 40s ease infinite, 0.7);
+  }
+
+  .g5 {
+    @include gradient-circle($color3, calc($circle-size * 2), calc(50% - $circle-size), calc(50% - $circle-size), calc(50% - 200px) calc(50% + 200px), moveInCircle 20s ease infinite, 1);
+  }
+
+  .interactive {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    @include gradient-circle($color-interactive, 30%, 0%, 0%, center center, none, 0.7);
+  }
+}

@@ -1,0 +1,19 @@
+<div class="aptitudes-container">
+  <h2 class="titulo-trabajos">{{'aptitudesComponent.title' | translate}}</h2>
+
+  <div class="tarjeta-aptitudes">
+    @for (aptitud of aptitudes; track $index) {
+    <div class="aptitud-container">
+      <div class="aptitud">
+        <div class="front">
+          <img class="img-aptitud" src="{{aptitud.img}}" alt="{{aptitud.descripcion}}" title="{{aptitud.descripcion}}">
+        </div>
+        <div class="back">
+          <p>{{aptitud.descripcion}}</p>
+        </div>
+      </div>
+    </div>
+    }
+
+  </div>
+</div>

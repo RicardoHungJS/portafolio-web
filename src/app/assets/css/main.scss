@@ -1,0 +1,22 @@
+@use './basics/normalize';
+@use './basics/fonts';
+
+* {
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+}
+
+body {
+  &::-webkit-scrollbar {
+    width: 0.6em;
+    background-color: #003f63;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #f2b138;
+
+    &:hover {
+      background-color: #ffc861;
+    }
+  }
+}

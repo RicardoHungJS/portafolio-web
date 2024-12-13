@@ -1,0 +1,301 @@
+@use '../../assets/css/basics/variables' as vars;
+@use '../../assets/css/basics/animations' as anim;
+
+.contactame-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100dvh;
+  padding-top: 70px;
+  overflow: hidden;
+  background: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+  @media (max-width: 425px) {
+    padding-top: 4rem;
+  }
+
+  .second-bg {
+    position: absolute;
+    top: 0;
+    z-index: 9;
+    width: 140%;
+    height: 100%;
+    background-image: url("../../assets/img/imagenes/animated-shape1.svg");
+    background-size: cover;
+  }
+
+  .titulo-trabajos {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    margin: 0;
+    color: vars.$colorSecundario;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contac-form-container {
+    position: relative;
+    z-index: 10;
+    height: fit-content;
+    min-height: 70vh;
+    width: 40%;
+    padding: 1rem;
+    backdrop-filter: blur(20px);
+    background-color: #00000054;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    @media (max-width: 768px) {
+      width: 90%;
+      padding: 1rem !important;
+    }
+
+    .title-contact {
+      width: 100%;
+      margin: 5px 0;
+      padding: 0;
+      text-align: center;
+      font-size: 3rem;
+      font-weight: bold;
+      color: vars.$blanco;
+
+      @media (max-width: 425px) {
+        font-size: 2rem;
+      }
+    }
+
+    .general-label {
+      font-size: 1.1em;
+      font-weight: bold;
+      color: #4b4b4b;
+      margin-bottom: 0.3em;
+    }
+
+    .form-input-box {
+      width: 50%;
+      height: fit-content;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+
+      .text-input {
+        outline: none;
+        background-color: transparent;
+        color: vars.$colorSecundario;
+        width: 100%;
+        height: 40px;
+        padding: 0 10px;
+        border: 1px solid vars.$colorSecundario;
+        border-radius: 5px;
+        transition: all 0.3s;
+
+        &:focus {
+          background-color: vars.$colorSecundario;
+          color: #fff;
+
+          &::placeholder {
+            color: #fff;
+          }
+        }
+
+        &:hover {
+          // border: 2px solid vars.$colorPrincipal;
+          background-color: vars.$colorSecundario;
+          color: #fff;
+
+          &::placeholder {
+            color: #fff;
+          }
+        }
+
+        &::placeholder {
+          color: #878787;
+          transition: all 0.3s;
+        }
+      }
+    }
+
+    .form-textarea-box {
+      width: 100%;
+      height: fit-content;
+      padding: 10px;
+      // background-color: #5500ff41;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .textarea-input {
+        outline: none;
+        background-color: transparent;
+        color: vars.$colorSecundario;
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        max-height: 200px;
+        min-height: 100px;
+        padding: 10px;
+        border: 1px solid vars.$colorSecundario;
+        border-radius: 5px;
+        transition: all 0.3s;
+
+        &:focus {
+          background-color: vars.$colorSecundario;
+          color: #fff;
+
+          &::placeholder {
+            color: #fff;
+          }
+        }
+
+        &:hover {
+          // border: 2px solid vars.$colorPrincipal;
+          background-color: vars.$colorSecundario;
+          color: #fff;
+
+          &::placeholder {
+            color: #fff;
+          }
+        }
+
+        &::placeholder {
+          color: #878787;
+          transition: all 0.3s;
+        }
+      }
+    }
+
+    .buttons-container {
+      width: 100%;
+      height: fit-content;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+
+      .btn-disabled {
+        width: 30%;
+        height: 35px;
+        padding: 0;
+        margin: 0;
+        border: none;
+        color: #fff;
+        font-weight: bold;
+        background-color: vars.$gris1;
+        border-radius: 5px;
+        transition: all 0.3s;
+      }
+
+      .btn-ok {
+        width: 30%;
+        height: 35px;
+        padding: 0;
+        margin: 0;
+        border: none;
+        color: #2b2b2b;
+        font-weight: bold;
+        background-color: vars.$colorPrincipal;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: all 0.3s;
+
+        &:hover {
+          background-color: #c58f2b;
+          color: #fff;
+        }
+      }
+
+      .btn-cancel {
+        width: 30%;
+        height: 35px;
+        padding: 0;
+        margin: 0;
+        border: none;
+        color: #fff;
+        font-weight: bold;
+        background-color: #4b4b4b;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: all 0.3s;
+
+        &:hover {
+          filter: brightness(1.6);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .info-contact-container {
+    .title-contact {
+      font-size: 1.6rem !important;
+    }
+
+    .info-contact {
+      font-size: 1.1rem !important;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+
+  .contac-form-container {
+    justify-content: center;
+
+    .info-contact-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .title-contact {
+        margin: 5px 0;
+        padding: 0;
+        font-size: 1.6em;
+        font-weight: bold;
+        color: vars.$colorPrincipal;
+      }
+
+      .info-contact {
+        margin: 0;
+        padding: 0;
+        font-size: 1.2em;
+        font-weight: bold;
+        color: vars.$gris2;
+      }
+    }
+  }
+
+  .buttons-container {
+
+    .btn-ok {
+      width: 40% !important;
+    }
+
+    .btn-cancel {
+      width: 40% !important;
+    }
+  }
+
+}
+
+.color-bg-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}

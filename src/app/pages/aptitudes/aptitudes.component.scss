@@ -1,0 +1,181 @@
+@use '../../assets/css/basics/variables' as vars;
+
+.aptitudes-container {
+  position: relative;
+  width: 100%;
+  height: 80dvh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  background-color: vars.$colorSecundario;
+  padding: 5rem 0 0 0;
+
+  @include vars.stylesBasedOnSize('large') {
+    justify-content: space-evenly;
+  }
+
+  @include vars.stylesBasedOnSize('medium') {
+    justify-content: space-evenly;
+  }
+
+  .titulo-trabajos {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 1rem;
+    color: #fff;
+    text-align: center;
+  }
+
+  @keyframes slide {
+    0% {
+      transform: translateX(-15%);
+    }
+
+    100% {
+      transform: translateX(25%);
+    }
+  }
+
+  .tarjeta-aptitudes {
+    width: 90%;
+    height: 80%;
+    padding: 10px;
+    border-radius: 10px;
+    transition: all 0.3s;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    gap: 2rem;
+
+    @include vars.stylesBasedOnSize('small') {
+      width: 100%;
+    }
+
+    @include vars.stylesBasedOnSize('medium') {
+      width: 100%;
+    }
+
+    .aptitud-container {
+      position: relative;
+      width: 11rem;
+      aspect-ratio: 1/1;
+
+      @include vars.stylesBasedOnSize('small') {
+        width: 4rem;
+        aspect-ratio: 1/1;
+      }
+
+      @include vars.stylesBasedOnSize('medium') {
+        width: 6rem;
+        aspect-ratio: 1/1;
+      }
+
+      .aptitud {
+        perspective: 400px;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+
+        &:hover {
+          .front {
+            transform: rotateY(-180deg);
+          }
+
+          .back {
+            transform: rotateY(0deg);
+
+            @include vars.stylesBasedOnSize('small') {
+              p {
+                font-size: 0.7rem;
+              }
+            }
+
+            @include vars.stylesBasedOnSize('medium') {
+              p {
+                font-size: 1rem;
+              }
+            }
+          }
+        }
+
+        @mixin card-sides($color) {
+          transform-style: preserve-3d;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: $color;
+          border-radius: 10px;
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+          transition: all 1s cubic-bezier(0.4, 0.2, 0.2, 1);
+          -webkit-box-shadow: 10px 10px 10px 1px #0000002e;
+          -moz-box-shadow: 10px 10px 10px 1px #0000002e;
+          box-shadow: 10px 10px 10px 1px #0000002e;
+        }
+
+        .front {
+          @include card-sides(#ffffff);
+
+          .img-aptitud {
+            width: 100%;
+            height: 100%;
+            padding: 15px;
+            object-fit: contain;
+            object-position: center;
+
+            @include vars.stylesBasedOnSize('small') {
+              padding: 0.4rem;
+            }
+
+            @include vars.stylesBasedOnSize('medium') {
+              padding: 0.4rem;
+            }
+          }
+        }
+
+        .back {
+          @include card-sides(#ffffff56);
+          color: #fff;
+          transform: rotateY(180deg);
+          background: linear-gradient(-45deg, #00000017, #06060645, #00000079, #000000);
+          background-size: 400% 400%;
+          animation: gradient 15s ease infinite;
+
+          @keyframes gradient {
+            0% {
+              background-position: 0% 50%;
+            }
+
+            50% {
+              background-position: 100% 50%;
+            }
+
+            100% {
+              background-position: 0% 50%;
+            }
+          }
+
+          p {
+            font-size: 1.5em;
+            font-weight: bold;
+
+            @include vars.stylesBasedOnSize('small') {
+              font-size: 0.7rem;
+            }
+
+            @include vars.stylesBasedOnSize('medium') {
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
