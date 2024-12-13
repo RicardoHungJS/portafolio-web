@@ -5,47 +5,32 @@
     </h2>
 
     <div class="form-input-box">
-      <label class="general-label" for="nombres">{{
-        "form.label1" | translate
-        }}</label>
-      <input class="text-input" [placeholder]="'form.label1' | translate" type="text" id="nombres"
-        formControlName="names" />
+      <label class="general-label" for="nombres">{{ "form.label1" | translate }}</label>
+      <input class="text-input" [placeholder]="'form.label1' | translate" type="text" id="nombres" formControlName="names" />
       <span class="txt-error"></span>
     </div>
 
     <div class="form-input-box">
-      <label class="general-label" for="apellidos">{{
-        "form.label2" | translate
-        }}</label>
-      <input class="text-input" [placeholder]="'form.label2' | translate" type="text" id="apellidos"
-        formControlName="lastNames" />
+      <label class="general-label" for="apellidos">{{ "form.label2" | translate }}</label>
+      <input class="text-input" [placeholder]="'form.label2' | translate" type="text" id="apellidos" formControlName="lastNames" />
       <span class="txt-error"></span>
     </div>
 
     <div class="form-input-box">
-      <label class="general-label" for="telefono">{{
-        "form.label3" | translate
-        }}</label>
-      <input class="text-input" [placeholder]="'form.label3' | translate" type="text" id="telefono"
-        formControlName="phoneNumber" />
+      <label class="general-label" for="telefono">{{ "form.label3" | translate }}</label>
+      <input class="text-input" [placeholder]="'form.label3' | translate" type="text" id="telefono" formControlName="phoneNumber" />
       <span class="txt-error"></span>
     </div>
 
     <div class="form-input-box">
-      <label class="general-label" for="email">{{
-        "form.label4" | translate
-        }}</label>
-      <input class="text-input" [placeholder]="'form.label4' | translate" type="text" id="email"
-        formControlName="email" />
+      <label class="general-label" for="email">{{ "form.label4" | translate }}</label>
+      <input class="text-input" [placeholder]="'form.label4' | translate" type="text" id="email" formControlName="email" />
       <span class="txt-error"></span>
     </div>
 
     <div class="form-textarea-box">
-      <label class="general-label" for="mensaje">{{
-        "form.label5" | translate
-        }}</label>
-      <textarea class="textarea-input" [placeholder]="'form.placeholer1' | translate" id="mensaje" rows="3"
-        formControlName="message"></textarea>
+      <label class="general-label" for="mensaje">{{ "form.label5" | translate }}</label>
+      <textarea class="textarea-input" [placeholder]="'form.placeholer1' | translate" id="mensaje" rows="3" formControlName="message"></textarea>
       <span class="txt-error"></span>
     </div>
 
@@ -53,7 +38,7 @@
       <button type="button" class="btn-cancel" (click)="clearForm()">
         {{ "form.clarButton" | translate | uppercase }}
       </button>
-      <button type="submit" [class]="!contactForm.valid ? 'btn-disabled' : 'btn-ok'" [disabled]="!contactForm.valid">
+      <button type="submit" [ngClass]="{'btn-disabled': !contactForm.valid, 'btn-ok': contactForm.valid}" [disabled]="!contactForm.valid">
         {{ "form.sendButton" | translate | uppercase }}
       </button>
     </div>
@@ -61,7 +46,7 @@
   <div class="color-bg-container">
     <app-color-bg></app-color-bg>
   </div>
+  @if (isLoading) {
+    <app-loading></app-loading>
+  }
 </div>
-@if (isLoading) {
-<app-loading></app-loading>
-}
