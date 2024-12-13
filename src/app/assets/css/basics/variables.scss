@@ -6,6 +6,8 @@ $gris2: #a1a5a6;
 $gris3: #353d40;
 $blanco: #fff;
 $negro: #000;
+$transparentBlack: #00000069;
+$boxShadowColor: #00000010;
 
 @mixin doNotCopyTexts {
   user-select: none;
@@ -15,20 +17,29 @@ $negro: #000;
 }
 
 @mixin stylesBasedOnSize($size) {
-  @if $size =="small" {
+  @if $size == "small" {
     @media (max-width: 426px) {
       @content;
     }
   }
 
-  @else if $size =="medium" {
+  @else if $size == "medium" {
     @media (min-width: 426px) and (max-width: 1024px) {
+      @content;
+    }
+    @media (max-width: 426px) {
       @content;
     }
   }
 
-  @else if $size =="large" {
+  @else if $size == "large" {
     @media (min-width: 1025px) {
+      @content;
+    }
+    @media (min-width: 426px) and (max-width: 1024px) {
+      @content;
+    }
+    @media (max-width: 426px) {
       @content;
     }
   }

@@ -8,24 +8,13 @@
   height: 100dvh;
   padding-top: 70px;
   overflow: hidden;
-  background: none;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
 
-  @media (max-width: 425px) {
+  @include vars.stylesBasedOnSize('small') {
     padding-top: 4rem;
-  }
-
-  .second-bg {
-    position: absolute;
-    top: 0;
-    z-index: 9;
-    width: 140%;
-    height: 100%;
-    background-image: url("../../assets/img/imagenes/animated-shape1.svg");
-    background-size: cover;
   }
 
   .titulo-trabajos {
@@ -42,12 +31,11 @@
   .contac-form-container {
     position: relative;
     z-index: 10;
-    height: fit-content;
     min-height: 70vh;
     width: 40%;
     padding: 1rem;
     backdrop-filter: blur(20px);
-    background-color: #00000054;
+    background-color: vars.$transparentBlack;
     border-radius: 10px;
     display: flex;
     flex-wrap: wrap;
@@ -75,104 +63,115 @@
     .general-label {
       font-size: 1.1em;
       font-weight: bold;
-      color: #4b4b4b;
+      color: vars.$gris2;
       margin-bottom: 0.3em;
     }
 
-    .form-input-box {
-      width: 50%;
-      height: fit-content;
+    @mixin inputsBoxes($w) {
+      width: $w;
       padding: 10px;
       display: flex;
       flex-direction: column;
       justify-content: center;
+    }
 
-      @media (max-width: 768px) {
+    @mixin input-styles($width: 100%, $height: 40px, $min-height: null, $max-height: null) {
+      outline: none;
+      background-color: transparent;
+      color: vars.$colorSecundario;
+      width: $width;
+      max-width: 100%;
+      height: $height;
+      padding: 10px;
+      border: 1px solid vars.$colorSecundario;
+      border-radius: 5px;
+      transition: all 0.3s;
+
+      &:focus {
+        background-color: vars.$colorSecundario;
+        color: vars.$blanco;
+
+        &::placeholder {
+          color: vars.$blanco;
+        }
+      }
+
+      &:hover {
+        background-color: vars.$colorSecundario;
+        color: vars.$blanco;
+
+        &::placeholder {
+          color: vars.$blanco;
+        }
+      }
+
+      &:not(:placeholder-shown) {
+        background-color: vars.$blanco; // Fondo blanco para inputs llenos
+        color: vars.$colorSecundario; // Color del texto en inputs llenos
+      }
+
+      &::placeholder {
+        color: vars.$gris2;
+        transition: all 0.3s;
+      }
+
+      @if $min-height !=null {
+        min-height: $min-height;
+      }
+
+      @if $max-height !=null {
+        max-height: $max-height;
+      }
+    }
+
+
+    .form-input-box {
+      @include inputsBoxes(50%);
+
+      @include vars.stylesBasedOnSize('small') {
         width: 100%;
       }
 
       .text-input {
-        outline: none;
-        background-color: transparent;
-        color: vars.$colorSecundario;
-        width: 100%;
-        height: 40px;
-        padding: 0 10px;
-        border: 1px solid vars.$colorSecundario;
-        border-radius: 5px;
-        transition: all 0.3s;
-
-        &:focus {
-          background-color: vars.$colorSecundario;
-          color: #fff;
-
-          &::placeholder {
-            color: #fff;
-          }
-        }
-
-        &:hover {
-          // border: 2px solid vars.$colorPrincipal;
-          background-color: vars.$colorSecundario;
-          color: #fff;
-
-          &::placeholder {
-            color: #fff;
-          }
-        }
-
-        &::placeholder {
-          color: #878787;
-          transition: all 0.3s;
-        }
+        @include input-styles(100%, 40px);
       }
     }
 
     .form-textarea-box {
-      width: 100%;
-      height: fit-content;
-      padding: 10px;
-      // background-color: #5500ff41;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      @include inputsBoxes(100%);
 
       .textarea-input {
-        outline: none;
-        background-color: transparent;
-        color: vars.$colorSecundario;
-        width: 100%;
         min-width: 100%;
-        max-width: 100%;
-        max-height: 200px;
-        min-height: 100px;
-        padding: 10px;
-        border: 1px solid vars.$colorSecundario;
-        border-radius: 5px;
-        transition: all 0.3s;
+        @include input-styles(100%, null, 100px, 200px);
+      }
+    }
 
-        &:focus {
-          background-color: vars.$colorSecundario;
-          color: #fff;
+    @mixin button-styles($bg-color, $text-color, $hover-bg-color: null, $hover-text-color: null, $hover-filter: null, $cursor: pointer) {
+      width: 30%;
+      height: 35px;
+      padding: 0;
+      margin: 0;
+      border: none;
+      color: $text-color;
+      font-weight: bold;
+      background-color: $bg-color;
+      border-radius: 5px;
+      transition: all 0.3s;
+      cursor: $cursor;
 
-          &::placeholder {
-            color: #fff;
-          }
-        }
-
+      @if $hover-bg-color or $hover-text-color or $hover-filter {
         &:hover {
-          // border: 2px solid vars.$colorPrincipal;
-          background-color: vars.$colorSecundario;
-          color: #fff;
-
-          &::placeholder {
-            color: #fff;
+          @if $hover-bg-color {
+            background-color: $hover-bg-color;
           }
-        }
 
-        &::placeholder {
-          color: #878787;
-          transition: all 0.3s;
+          @if $hover-text-color {
+            color: $hover-text-color;
+          }
+
+          @if $hover-filter {
+            filter: $hover-filter;
+          }
         }
       }
     }
@@ -185,72 +184,42 @@
       align-items: center;
 
       .btn-disabled {
-        width: 30%;
-        height: 35px;
-        padding: 0;
-        margin: 0;
-        border: none;
-        color: #fff;
-        font-weight: bold;
-        background-color: vars.$gris1;
-        border-radius: 5px;
-        transition: all 0.3s;
+        @include button-styles(vars.$gris1, vars.$blanco, null, null, null, not-allowed);
       }
 
       .btn-ok {
-        width: 30%;
-        height: 35px;
-        padding: 0;
-        margin: 0;
-        border: none;
-        color: #2b2b2b;
-        font-weight: bold;
-        background-color: vars.$colorPrincipal;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: all 0.3s;
-
-        &:hover {
-          background-color: #c58f2b;
-          color: #fff;
-        }
+        @include button-styles(vars.$colorPrincipal,
+          vars.$gris3,
+          vars.$colorPrincipal,
+          vars.$blanco,
+          brightness(0.8));
       }
 
       .btn-cancel {
-        width: 30%;
-        height: 35px;
-        padding: 0;
-        margin: 0;
-        border: none;
-        color: #fff;
-        font-weight: bold;
-        background-color: #4b4b4b;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: all 0.3s;
-
-        &:hover {
-          filter: brightness(1.6);
-        }
+        @include button-styles(vars.$gris3,
+          vars.$blanco,
+          null,
+          null,
+          brightness(1.2));
       }
     }
+
   }
 }
 
-@media (max-width: 768px) {
+@include vars.stylesBasedOnSize('small') {
   .info-contact-container {
     .title-contact {
-      font-size: 1.6rem !important;
+      font-size: 1.6rem;
     }
 
     .info-contact {
-      font-size: 1.1rem !important;
+      font-size: 1.1rem;
     }
   }
 }
 
-@media (max-width: 992px) {
-
+@include vars.stylesBasedOnSize('medium') {
   .contac-form-container {
     justify-content: center;
 
@@ -281,14 +250,13 @@
   .buttons-container {
 
     .btn-ok {
-      width: 40% !important;
+      width: 40%;
     }
 
     .btn-cancel {
-      width: 40% !important;
+      width: 40%;
     }
   }
-
 }
 
 .color-bg-container {
